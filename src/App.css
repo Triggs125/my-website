@@ -36,3 +36,25 @@
     transform: rotate(360deg);
   }
 }
+
+body {
+  overflow: auto;
+}
+
+.nav-links {
+  margin-left: auto !important;
+}
+
+.nav-name {
+  margin-left: 37% !important;
+}
+
+.outer-container {
+  max-width: none !important;
+  height: 100em;
+}
+
+.navbar-brand {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
