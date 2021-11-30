@@ -41,12 +41,12 @@ body {
   overflow: auto;
 }
 
-.nav-links {
-  margin-left: auto !important;
+.navbar {
+  flex-wrap: nowrap;
 }
 
-.nav-name {
-  margin-left: 37% !important;
+.nav-links {
+  margin-left: auto !important;
 }
 
 .outer-container {

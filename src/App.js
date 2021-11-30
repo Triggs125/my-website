@@ -1,12 +1,13 @@
 import React from 'react';
 import { MemoryRouter, Switch, Route } from 'react-router-dom';
-
 import {
   Container,
   Nav,
   Navbar,
 } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
+
+import calculateTextWidth from 'calculate-text-width';
 
 import './App.css';
 
@@ -49,9 +50,13 @@ class App extends React.Component {
 
     return (
       <MemoryRouter>
-        <Navbar collapseOnSelect bg="dark" variant="dark" expand="md" sticky="top">
+        <Navbar collapseOnSelect bg="dark" variant="dark" expand="sm" sticky="top">
           <Navbar.Toggle aria-controls="navbar-nav" />
-          <Navbar.Brand className="nav-name">
+          <Navbar.Brand
+            style={{
+              "margin-left": `calc(50vw - ${0.5 * calculateTextWidth('Tanner Driggers', `normal 500 40px system-ui`)}px)`
+            }}
+          >
             <LinkContainer to="/">
               <h1>Tanner Driggers</h1>
             </LinkContainer>
