@@ -41,20 +41,7 @@ body {
   overflow: auto;
 }
 
-.navbar {
-  flex-wrap: nowrap;
-}
-
-.nav-links {
-  margin-left: auto !important;
-}
-
 .outer-container {
   max-width: none !important;
   height: 100em;
-}
-
-.navbar-brand {
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
 }
