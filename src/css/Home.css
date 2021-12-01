@@ -1,0 +1,9 @@
+#tanner-image {
+  max-width: 400px;
+}
+
+@media only screen and (max-width: 580px) {
+  #header-image {
+    max-width: 100%;
+  }
+}

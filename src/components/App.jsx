@@ -13,7 +13,6 @@ const backgroundColors = [
   "bg-primary",
   "bg-secondary",
   "bg-success",
-  "bg-warning",
   "bg-danger",
   "bg-info",
 ];
@@ -44,19 +43,17 @@ class App extends React.Component {
       <MemoryRouter>
         <Navbar />
         <Container className={`p-3 m-auto ${pageBackground} outer-container`}>
-          <Container className="p-5 m-auto bg-light rounded-1">
-            <Switch>
-              <Route path="/about">
-                <About />
-              </Route>
-              <Route path="/store">
-                <Store />
-              </Route>
-              <Route exact path="/">
-                <Home />
-              </Route>
-            </Switch>
-          </Container>
+          <Switch>
+            <Route path="/about">
+              <About />
+            </Route>
+            <Route path="/store">
+              <Store />
+            </Route>
+            <Route exact path="/">
+              <Home />
+            </Route>
+          </Switch>
         </Container>
       </MemoryRouter>
     );

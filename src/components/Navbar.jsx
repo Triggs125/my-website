@@ -27,8 +27,15 @@ class Navbar extends Component {
     const { selectedButton } = this.state;
 
     return (
-      <NavBar collapseOnSelect bg="dark" variant="dark" expand="lg" sticky="top">
-        <Container>
+      <NavBar
+        collapseOnSelect
+        bg="dark"
+        variant="dark"
+        expand="lg"
+        sticky="top"
+        className="shadow"
+      >
+        <Container className="mx-2">
           <NavBar.Brand
             style={{
               "margin-left": `calc(50% - ${0.5 * calculateTextWidth('Tanner Driggers', `normal 500 50px system-ui`)}px)`,
@@ -37,7 +44,7 @@ class Navbar extends Component {
             <LinkContainer to="/">
               <Button
                 id="myName"
-                className="bg-dark"
+                className="bg-dark border-0"
                 variant="dark"
                 size="lg"
                 onClick={() => this.changeSelectedButton('home')}
