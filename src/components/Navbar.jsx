@@ -28,12 +28,13 @@ class Navbar extends Component {
 
     return (
       <NavBar
+        id="navbar"
         collapseOnSelect
         bg="dark"
         variant="dark"
         expand="lg"
         sticky="top"
-        className="shadow"
+        className="shadow d-flex justify-content-around"
       >
         <Container className="mx-2">
           <NavBar.Brand

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { MemoryRouter, Switch, Route } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
 
@@ -7,17 +7,11 @@ import Home from './Home';
 import About from './About';
 import Store from './Store';
 
+import { backgroundColors } from '../utilities/globalVariables';
+
 import '../css/App.css';
 
-const backgroundColors = [
-  "bg-primary",
-  "bg-secondary",
-  "bg-success",
-  "bg-danger",
-  "bg-info",
-];
-
-class App extends React.Component {
+class App extends Component {
 
   constructor(props) {
     super(props);
@@ -42,7 +36,7 @@ class App extends React.Component {
     return (
       <MemoryRouter>
         <Navbar />
-        <Container className={`p-3 m-auto ${pageBackground} outer-container`}>
+        <Container className={`p-3 m-auto bg-${pageBackground} outer-container`}>
           <Switch>
             <Route path="/about">
               <About />
@@ -51,7 +45,7 @@ class App extends React.Component {
               <Store />
             </Route>
             <Route exact path="/">
-              <Home />
+              <Home backgroundColor={pageBackground} />
             </Route>
           </Switch>
         </Container>

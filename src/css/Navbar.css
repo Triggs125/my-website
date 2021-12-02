@@ -26,3 +26,17 @@
   padding-top: 0 !important;
   padding-bottom: 0 !important;
 }
+
+.navbar {
+  justify-content: center;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.navbar-nav {
+  float: right;
+}
+
+#navbar {
+  justify-content: flex-end;
+}
