@@ -48,7 +48,7 @@ class Home extends Component {
     ];
 
     return (
-      <Stack gap={4} className="m-4 shadow-image">
+      <Stack gap={4} className={`shadow-image`}>
         <div className={stackStyle}>
           <Card className="bg-light p-4 border-0">
             <Card.Header ref={(ref) => this.ref = ref} className="pl-3 bg-light float-left">
