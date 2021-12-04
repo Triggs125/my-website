@@ -1,7 +1,10 @@
 import React, { Component } from "react";
-import { Image } from 'react-bootstrap';
+import { connect } from "react-redux";
+import { Image, Spinner } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import Button from "react-bootstrap/Button";
+
+import { setImagesShowing } from "../actions/imageRotatorActions";
 
 import '../css/ImageRotator.css';
 
@@ -24,45 +27,53 @@ class ImageRotator extends Component {
       renderImages: false,
     }
 
-    window.addEventListener('resize', () => { this.setState({}) });
+    window.addEventListener('resize', () => this.calculateImagesToShow());
+    setInterval(() => this.incrementImageIndex(), 5000);
   }
 
   calculateImagesToShow() {
     const { firstImageIndex, renderImages } = this.state;
-    const { images } = this.props;
+    const { images, dispatch } = this.props;
     
+    const imagesToShow = [];
     if (renderImages) {
-      // TODO: Implement a better way of calculating the number of images by adding each image width separately until they go over the width of the component
-      const widthOfComponent = this.outerRef?.offsetWidth - (2 * this.buttonRef?.offsetWidth) - 50; // The width of the outer component
-      const aveImageWidth = 400; // Average of all of the image widths
-      const numberOfImages = Math.max(Math.floor(widthOfComponent / aveImageWidth), 1);
-      
-      const imagesToShow = [];
+      // Calculate the width of the outer component
+      const widthOfOuterComponent = this.outerRef?.offsetWidth - (2 * this.buttonRef?.offsetWidth + 200);
+      // Set an average image width of 400px which is the max width an image can be
+      const aveImageWidth = 400;
+      // Calculate the number of images to dispay
+      const numberOfImages = Math.max(Math.floor(widthOfOuterComponent / aveImageWidth), 1);
+
+      // Get the images showing based on what the first image index
       for (let i = 0, j = firstImageIndex; i < numberOfImages; i++, j++) {
         if (j >= images.length) j = 0;
         imagesToShow.push(images[j]);
       }
-      return imagesToShow;
+
+      dispatch(setImagesShowing(imagesToShow));
     }
-    return [];
+
+    return imagesToShow;
   }
 
   incrementImageIndex() {
     const { firstImageIndex } = this.state;
     const { images } = this.props;
-    if (firstImageIndex + 1 >= images.length) {
-      this.setState({ firstImageIndex: 0 });
-    }
-    else {
-      this.setState({ firstImageIndex: firstImageIndex + 1});
-    }
+
+    if (firstImageIndex + 1 >= images.length) this.setState({ firstImageIndex: 0 });
+    else this.setState({ firstImageIndex: firstImageIndex + 1});
+
+    this.calculateImagesToShow();
   }
 
   decrementImageIndex() {
     const { firstImageIndex } = this.state;
     const { images } = this.props;
+
     if (firstImageIndex - 1 < 0) this.setState({ firstImageIndex: images.length - 1 });
     else this.setState({ firstImageIndex: firstImageIndex - 1 });
+
+    this.calculateImagesToShow();
   }
 
   setOuterRef(ref) {
@@ -76,27 +87,31 @@ class ImageRotator extends Component {
   }
 
   render() {
-    const { images, backgroundColor } = this.props;
+    const { backgroundColor, imagesShowing } = this.props;
 
-    const imagesToShow = this.calculateImagesToShow(images);
+    // If calculateImagesToShow has been called before then imagesShowing will have a length of at least 1 so this will only be called once
+    if (imagesShowing.length === 0) this.calculateImagesToShow();
 
     // There's only one image showing so put the arrow buttons below the image
-    if (imagesToShow.length === 1) {
+    if (imagesShowing.length === 1) {
       return (
         <div ref={(ref) => this.setOuterRef(ref)} className="d-flex flex-column justify-content-center flex-nowrap">
           <div className="d-flex justify-content-center flex-nowrap">
             {
-              this.state.renderImages &&
-              imagesToShow.map((image, index) => {
+              this.state.renderImages
+              ? imagesShowing.map((image, index) => {
                 return (
                   <Image
+                    key={`image-${index}`}
                     id={`image-${index}`}
                     className={`image-rotator-image bg-light mb-4 ${image.shadow ? image.shadow : 'shadow-image'} ${image.rounded ? image.rounded : 'rounded-3'}`}
                     roundedCircle={image.roundedCircle !== undefined ? image.roundedCircle : true}
                     src={image.src}
                   />
                 );
-              })
+              }) : (
+                <Spinner animation="grow" variant={backgroundColor} />
+              )
             }
           </div>
           <div className="d-flex justify-content-around flex-nowrap">
@@ -133,17 +148,20 @@ class ImageRotator extends Component {
         </Button>
         <div className="wrapper">
           {
-            this.state.renderImages &&
-            imagesToShow.map((image, index) => {
+            this.state.renderImages
+            ? imagesShowing.map((image, index) => {
               return (
                 <Image
+                  key={`image-${index}`}
                   id={`image-${index}`}
                   className={`image-rotator-image bg-light m-5 ${image.shadow ? image.shadow : 'shadow-image'} ${image.rounded ? image.rounded : 'rounded-3'}`}
                   roundedCircle={image.roundedCircle !== undefined ? image.roundedCircle : true}
                   src={image.src}
                 />
               );
-            })
+            }) : (
+              <Spinner animation="grow" variant={backgroundColor} />
+            )
           }
         </div>
         <Button
@@ -158,5 +176,9 @@ class ImageRotator extends Component {
   }
 }
 
+const mapStateToProps = state => ({
+  imagesShowing: state.imageRotator.imagesShowing,
+});
+
 ImageRotator.protoTypes = propTypes;
-export default ImageRotator;
+export default connect(mapStateToProps)(ImageRotator);
