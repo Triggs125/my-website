@@ -30,7 +30,7 @@
     "lint": "eslint",
     "eject": "react-scripts eject",
     "deploy": "npm run build && firebase deploy",
-    "deploy:test": "firebase hosting:channel:deploy test-version"
+    "deploy:test": "npm run build && firebase hosting:channel:deploy test-version"
   },
   "eslintConfig": {
     "extends": [

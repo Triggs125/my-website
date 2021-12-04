@@ -34,9 +34,9 @@ class Navbar extends Component {
         variant="dark"
         expand="lg"
         sticky="top"
-        className="shadow"
+        className="shadow justify-content-center"
       >
-        <Container className="mx-2">
+        <Container id="navbar-container" className="mx-2 flex-nowrap">
           <NavBar.Brand
             style={{
               "margin-left": `calc(50% - ${0.5 * calculateTextWidth('Tanner Driggers', `normal 500 50px system-ui`)}px)`,
@@ -58,7 +58,7 @@ class Navbar extends Component {
             </LinkContainer>
           </NavBar.Brand>
           <NavBar.Toggle aria-controls="navbar-nav" />
-          <NavBar.Collapse id="navbar-nav" className="">
+          <NavBar.Collapse id="navbar-nav">
             <Nav className="me-auto">
               <Nav.Item>
                 <Nav.Link>
