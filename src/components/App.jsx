@@ -2,6 +2,13 @@ import React, { Component } from 'react';
 import { MemoryRouter, Switch, Route } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
 
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+import { firebaseConfig } from '../config';
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
 import Navbar from './Navbar';
 import Home from './Home';
 import About from './About';
@@ -16,13 +23,17 @@ class App extends Component {
   constructor(props) {
     super(props);
 
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+
     this.state = {
-      pageBackground: "bg-secondary"
+      pageBackground: "primary"
     }
   }
 
   componentDidMount() {
-    let i = 0;
+    let i = 1;
     setInterval(() => {
       this.setState({ pageBackground: backgroundColors[i]});
       if (i >= backgroundColors.length - 1) i = -1;
