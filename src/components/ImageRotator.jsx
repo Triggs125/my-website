@@ -99,12 +99,12 @@ class ImageRotator extends Component {
           <div className="d-flex justify-content-center flex-nowrap">
             {
               this.state.renderImages
-              ? imagesShowing.map((image, index) => {
+              ? imagesShowing.map((image) => {
                 return (
                   <Image
-                    key={`image-${index}`}
-                    id={`image-${index}`}
-                    className={`image-rotator-image bg-light mb-4 ${image.shadow ? image.shadow : 'shadow-image'} ${image.rounded ? image.rounded : 'rounded-3'}`}
+                    key={`image-0`}
+                    id={`image-0`}
+                    className={`image-rotator-image bg-light mb-5 ${image.shadow ? image.shadow : 'shadow-image'} ${image.rounded ? image.rounded : 'rounded-3'}`}
                     roundedCircle={image.roundedCircle !== undefined ? image.roundedCircle : true}
                     src={image.src}
                   />
