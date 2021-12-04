@@ -4,7 +4,7 @@ import {
   Button,
   Container,
   Nav,
-  Navbar as NavBar,
+  Navbar as NavBar
 } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import calculateTextWidth from 'calculate-text-width';
@@ -34,7 +34,7 @@ class Navbar extends Component {
         variant="dark"
         expand="lg"
         sticky="top"
-        className="shadow d-flex justify-content-around"
+        className="shadow"
       >
         <Container className="mx-2">
           <NavBar.Brand
@@ -58,8 +58,8 @@ class Navbar extends Component {
             </LinkContainer>
           </NavBar.Brand>
           <NavBar.Toggle aria-controls="navbar-nav" />
-          <NavBar.Collapse id="navbar-nav" className="justify-content-end">
-            <Nav>
+          <NavBar.Collapse id="navbar-nav" className="">
+            <Nav className="me-auto">
               <Nav.Item>
                 <Nav.Link>
                   <LinkContainer to="/">

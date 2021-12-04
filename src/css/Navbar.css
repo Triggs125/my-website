@@ -22,8 +22,8 @@
   box-shadow: none !important;
 }
 
-.navbar {
-  flex-wrap: nowrap;
+.navbar-collapse {
+  flex-grow: unset !important;
 }
 
 .navbar-brand {
