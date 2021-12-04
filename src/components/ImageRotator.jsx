@@ -78,8 +78,49 @@ class ImageRotator extends Component {
   render() {
     const { images, backgroundColor } = this.props;
 
-    const imagesToShow = this.calculateImagesToShow(images)
+    const imagesToShow = this.calculateImagesToShow(images);
 
+    // There's only one image showing so put the arrow buttons below the image
+    if (imagesToShow.length === 1) {
+      return (
+        <div ref={(ref) => this.setOuterRef(ref)} className="d-flex flex-column justify-content-center flex-nowrap">
+          <div className="d-flex justify-content-center flex-nowrap">
+            {
+              this.state.renderImages &&
+              imagesToShow.map((image, index) => {
+                return (
+                  <Image
+                    id={`image-${index}`}
+                    className={`image-rotator-image bg-light mb-4 ${image.shadow ? image.shadow : 'shadow-image'} ${image.rounded ? image.rounded : 'rounded-3'}`}
+                    roundedCircle={image.roundedCircle !== undefined ? image.roundedCircle : true}
+                    src={image.src}
+                  />
+                );
+              })
+            }
+          </div>
+          <div className="d-flex justify-content-around flex-nowrap">
+            <Button
+              ref={(ref) => this.setButtonRef(ref)}
+              className={`bg-light border-${backgroundColor} my-auto py-2 px-5`}
+              variant="light"
+              onClick={() => this.decrementImageIndex()}
+            >
+              {"<"}
+            </Button>
+            <Button
+              className={`bg-light border-${backgroundColor} my-auto py-2 px-5`}
+              variant="light"
+              onClick={() => this.incrementImageIndex()}
+            >
+              {">"}
+            </Button>
+          </div>
+        </div>
+      );
+    }
+
+    // More than one image so put the arrow buttons on each side
     return (
       <div ref={(ref) => this.setOuterRef(ref)} className="d-flex justify-content-between flex-nowrap">
         <Button
@@ -97,7 +138,7 @@ class ImageRotator extends Component {
               return (
                 <Image
                   id={`image-${index}`}
-                  className={`header-image bg-light m-5 ${image.shadow ? image.shadow : 'shadow-image'} ${image.rounded ? image.rounded : 'rounded-3'}`}
+                  className={`image-rotator-image bg-light m-5 ${image.shadow ? image.shadow : 'shadow-image'} ${image.rounded ? image.rounded : 'rounded-3'}`}
                   roundedCircle={image.roundedCircle !== undefined ? image.roundedCircle : true}
                   src={image.src}
                 />

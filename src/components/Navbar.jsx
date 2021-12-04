@@ -64,7 +64,7 @@ class Navbar extends Component {
                 <Nav.Link>
                   <LinkContainer to="/">
                     <Button
-                      className="bg-dark"
+                      className={`bg-dark ${selectedButton !== 'home' ?? 'border-0'}`}
                       variant={selectedButton === 'home' ? 'secondary' : 'dark'}
                       size="lg"
                       onClick={() => this.changeSelectedButton('home')}
@@ -81,7 +81,7 @@ class Navbar extends Component {
                 <Nav.Link>
                   <LinkContainer to="/about">
                     <Button
-                      className="bg-dark"
+                      className={`bg-dark active ${selectedButton !== 'about' ?? 'border-0'}`}
                       variant={selectedButton === 'about' ? 'secondary' : 'dark'}
                       size="lg"
                       onClick={() => this.changeSelectedButton('about')}
@@ -98,7 +98,7 @@ class Navbar extends Component {
                 <Nav.Link>
                   <LinkContainer to="/store">
                     <Button
-                      className="bg-dark"
+                      className={`bg-dark active ${selectedButton !== 'store' ?? 'border-0'}`}
                       variant={selectedButton === 'store' ? 'secondary' : 'dark'}
                       size="lg"
                       onClick={() => this.changeSelectedButton('store')}

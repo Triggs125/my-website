@@ -1,9 +1,9 @@
-.header-image {
-  max-height: 400px;
+.image-rotator-image {
+  max-width: 400px;
 }
 
-@media only screen and (max-width: 580px) {
-  .header-image {
-    max-height: 100%;
+@media only screen and (max-width: 750px) {
+  .image-rotator-image {
+    max-width: 100%;
   }
 }
