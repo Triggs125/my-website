@@ -104,7 +104,7 @@ class ImageRotator extends Component {
                   <Image
                     key={`image-0`}
                     id={`image-0`}
-                    className={`image-rotator-image bg-light mb-5 ${image.shadow ? image.shadow : 'shadow-image'} ${image.rounded ? image.rounded : 'rounded-3'}`}
+                    className={`image-rotator-image bg-light mb-5 shadow-image ${image.rounded ? image.rounded : 'rounded-3'}`}
                     roundedCircle={image.roundedCircle !== undefined ? image.roundedCircle : true}
                     src={image.src}
                   />
@@ -117,14 +117,16 @@ class ImageRotator extends Component {
           <div className="d-flex justify-content-around flex-nowrap">
             <Button
               ref={(ref) => this.setButtonRef(ref)}
-              className={`bg-light border-${backgroundColor} my-auto py-2 px-5`}
+              className={`bg-light border-1 my-auto py-2 px-5 arrow-button`}
+              style={{ 'borderColor': backgroundColor }}
               variant="light"
               onClick={() => this.decrementImageIndex()}
             >
               {"<"}
             </Button>
             <Button
-              className={`bg-light border-${backgroundColor} my-auto py-2 px-5`}
+              className={`bg-light border-1 my-auto py-2 px-5 arrow-button`}
+              style={{ 'borderColor': backgroundColor }}
               variant="light"
               onClick={() => this.incrementImageIndex()}
             >
@@ -140,7 +142,8 @@ class ImageRotator extends Component {
       <div ref={(ref) => this.setOuterRef(ref)} className="d-flex justify-content-between flex-nowrap">
         <Button
           ref={(ref) => this.setButtonRef(ref)}
-          className={`bg-light border-${backgroundColor} my-auto p-3 pt-4 pb-4`}
+          className={`bg-light border-1 my-auto p-3 pt-4 pb-4`}
+          style={{ 'borderColor': backgroundColor }}
           variant="light"
           onClick={() => this.decrementImageIndex()}
         >
@@ -154,7 +157,7 @@ class ImageRotator extends Component {
                 <Image
                   key={`image-${index}`}
                   id={`image-${index}`}
-                  className={`image-rotator-image bg-light m-5 ${image.shadow ? image.shadow : 'shadow-image'} ${image.rounded ? image.rounded : 'rounded-3'}`}
+                  className={`image-rotator-image bg-light shadow-image m-5 ${image.rounded ? image.rounded : 'rounded-3'}`}
                   roundedCircle={image.roundedCircle !== undefined ? image.roundedCircle : true}
                   src={image.src}
                 />
@@ -165,7 +168,8 @@ class ImageRotator extends Component {
           }
         </div>
         <Button
-          className={`bg-light border-${backgroundColor} my-auto p-3 pt-4 pb-4`}
+          className={`bg-light border-1 my-auto p-3 pt-4 pb-4`}
+          style={{ 'borderColor': backgroundColor }}
           variant="light"
           onClick={() => this.incrementImageIndex()}
         >

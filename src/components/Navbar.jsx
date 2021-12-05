@@ -39,7 +39,7 @@ class Navbar extends Component {
         <Container id="navbar-container" className="mx-2 flex-nowrap">
           <NavBar.Brand
             style={{
-              "margin-left": `calc(50% - ${0.5 * calculateTextWidth('Tanner Driggers', `normal 500 50px system-ui`)}px)`,
+              "marginLeft": `calc(50% - ${0.5 * calculateTextWidth('Tanner Driggers', `normal 500 50px system-ui`)}px)`,
             }}
           >
             <LinkContainer to="/">

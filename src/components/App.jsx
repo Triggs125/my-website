@@ -17,8 +17,9 @@ class App extends Component {
     super(props);
 
     this.state = {
-      pageBackground: "primary"
+      pageBackground: "#0d6efd"
     }
+    document.body.style.backgroundColor = "#0d6efd";
   }
 
   componentDidMount() {
@@ -32,11 +33,14 @@ class App extends Component {
 
   render() {
     const { pageBackground } = this.state;
+    document.body.style.backgroundColor = pageBackground;
 
     return (
       <MemoryRouter>
         <Navbar />
-        <Container className={`p-3 m-auto bg-${pageBackground} outer-container`}>
+        <Container
+          className={`p-3 m-auto outer-container`}
+        >
           <Switch>
             <Route path="/about">
               <About />
@@ -48,7 +52,7 @@ class App extends Component {
               <Home backgroundColor={pageBackground} />
             </Route>
           </Switch>
-        </Container>
+        </Container>       
       </MemoryRouter>
     );
   }
