@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import { MemoryRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
 
 import Navbar from './Navbar';
-import Home from './Home';
-import About from './About';
-import Store from './Store';
+import Home from './Pages/Home';
+import Experience from './Pages/Experience';
+import About from './Pages/About';
+import Store from './Pages/Store';
 
 import { backgroundColors } from '../utilities/globalVariables';
 
@@ -17,9 +18,9 @@ class App extends Component {
     super(props);
 
     this.state = {
-      pageBackground: "#0d6efd"
+      pageBackground: backgroundColors[0]
     }
-    document.body.style.backgroundColor = "#0d6efd";
+    document.body.style.backgroundColor = this.state.pageBackground;
   }
 
   componentDidMount() {
@@ -36,24 +37,24 @@ class App extends Component {
     document.body.style.backgroundColor = pageBackground;
 
     return (
-      <MemoryRouter>
+      <BrowserRouter>
         <Navbar />
         <Container
           className={`p-3 m-auto outer-container`}
         >
           <Switch>
-            <Route path="/about">
-              <About />
-            </Route>
-            <Route path="/store">
-              <Store />
-            </Route>
-            <Route exact path="/">
-              <Home backgroundColor={pageBackground} />
-            </Route>
+            <Route
+              exact
+              path="/"
+              component={Home}
+              backgroundColor={pageBackground}
+            />
+            <Route exact path="/experience" component={Experience} />
+            <Route exact path="/about" component={About} />
+            <Route exact path="/store" component={<Store />} />
           </Switch>
         </Container>       
-      </MemoryRouter>
+      </BrowserRouter>
     );
   }
 };

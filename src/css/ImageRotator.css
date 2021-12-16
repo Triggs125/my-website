@@ -1,9 +1,21 @@
 .image-rotator-image {
+  width: auto;
+  height: auto;
   max-width: 400px;
+  max-height: 400px;
+  object-fit: contain;
 }
 
 @media only screen and (max-width: 750px) {
   .image-rotator-image {
-    max-width: 100%;
+    max-width: 80% !important;
   }
+}
+
+.image-rotator-button {
+  background-color: transparent !important;
+}
+
+.image-rotator-button:hover {
+  background-color: lightgray !important;
 }
