@@ -79,6 +79,23 @@ class Navbar extends Component {
               </Nav.Item>
               <Nav.Item>
                 <Nav.Link>
+                  <LinkContainer to="/experience">
+                    <Button
+                      className={`bg-dark active ${selectedButton !== 'about' ?? 'border-0'}`}
+                      variant={selectedButton === 'experience' ? 'secondary' : 'dark'}
+                      size="lg"
+                      onClick={() => this.changeSelectedButton('experience')}
+                    >
+                      <FormattedMessage
+                        id="myWebsite.experience"
+                        defaultMessage="Experience"
+                        description="Experience Button in the Navbar"/>
+                    </Button>
+                  </LinkContainer>
+                </Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Nav.Link>
                   <LinkContainer to="/about">
                     <Button
                       className={`bg-dark active ${selectedButton !== 'about' ?? 'border-0'}`}
@@ -94,7 +111,7 @@ class Navbar extends Component {
                   </LinkContainer>
                 </Nav.Link>
               </Nav.Item>
-              <Nav.Item>
+              {/* <Nav.Item>
                 <Nav.Link>
                   <LinkContainer to="/store">
                     <Button
@@ -110,7 +127,7 @@ class Navbar extends Component {
                     </Button>
                   </LinkContainer>
                 </Nav.Link>
-              </Nav.Item>
+              </Nav.Item> */}
             </Nav>
           </NavBar.Collapse>
         </Container>
