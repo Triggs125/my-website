@@ -60,16 +60,29 @@ class ImageRotator extends Component {
     // Get the max number of components that fit across the page
     const maxNumberOfImages = Math.floor(widthOfOuterComponent / aveImageWidth);
     // Calculate the number of images to dispay
-    const numberOfImages = 
-      Math.max(
-        1,
-        Math.min(
-          Math.floor(widthOfOuterComponent / aveImageWidth),
-          maxNumberOfImages,
-          images.length,
-          maxImagesOnScreen,
-        )
-      );
+    let numberOfImages;
+    if (maxImagesOnScreen) {
+      numberOfImages =
+        Math.max(
+          1,
+          Math.min(
+            Math.floor(widthOfOuterComponent / aveImageWidth),
+            maxNumberOfImages,
+            images.length,
+            maxNumberOfImages,
+          )
+        );
+    } else {
+      numberOfImages =
+        Math.max(
+          1,
+          Math.min(
+            Math.floor(widthOfOuterComponent / aveImageWidth),
+            maxNumberOfImages,
+            images.length,
+          )
+        );
+    }
 
     // Get the images showing based on what the first image index
     for (let i = 0, j = firstImageIndex; i < numberOfImages; i++, j++) {
@@ -189,7 +202,7 @@ class ImageRotator extends Component {
         >
           <h2 className="py-5 my-5 px-2">{"<"}</h2>
         </Button>
-        <div className="wrapper">
+        <div className="wrapper d-flex">
           {
             this.state.renderImages
             ? imagesShowing.map((image, index) => {
