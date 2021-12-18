@@ -73,8 +73,12 @@ class Home extends Component {
                 My favorite type of music is a mix between Rap, Hip-hop, and Pop.
                 I love both cats and dogs, but if I had to choose I'd pick cats as they are more laid back.
                 If there is one thing to know about me it is that if I care about something, I will put in the work to make it happen.
-                Click <Button href="/experience" className="btn btn-light m-0 p-0"><p className="m-0 p-0 pb-1 font-weight-bold">here</p></Button> for my professional experience.
               </Card.Text>
+              <Button
+                href="/experience"
+              >
+                Professional Experience
+              </Button>
             </Card.Body>
           </Card>
         </div>

@@ -61,71 +61,63 @@ class Navbar extends Component {
           <NavBar.Collapse id="navbar-nav">
             <Nav className="me-auto">
               <Nav.Item>
-                <Nav.Link>
-                  <LinkContainer to="/">
-                    <Button
-                      className={`bg-dark ${selectedButton !== 'home' ?? 'border-0'}`}
-                      variant={selectedButton === 'home' ? 'secondary' : 'dark'}
-                      size="lg"
-                      onClick={() => this.changeSelectedButton('home')}
-                    >
-                      <FormattedMessage
-                        id="myWebsite.home"
-                        defaultMessage="Home"
-                        description="Home Button in the Navbar"/>
-                    </Button>
-                  </LinkContainer>
+                <Nav.Link href="/">
+                  <Button
+                    className={`bg-dark ${selectedButton !== 'home' ?? 'border-0'}`}
+                    variant={selectedButton === 'home' ? 'secondary' : 'dark'}
+                    size="lg"
+                    onClick={() => this.changeSelectedButton('home')}
+                  >
+                    <FormattedMessage
+                      id="myWebsite.home"
+                      defaultMessage="Home"
+                      description="Home Button in the Navbar"/>
+                  </Button>
                 </Nav.Link>
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link>
-                  <LinkContainer to="/experience">
-                    <Button
-                      className={`bg-dark active ${selectedButton !== 'about' ?? 'border-0'}`}
-                      variant={selectedButton === 'experience' ? 'secondary' : 'dark'}
-                      size="lg"
-                      onClick={() => this.changeSelectedButton('experience')}
-                    >
-                      <FormattedMessage
-                        id="myWebsite.experience"
-                        defaultMessage="Experience"
-                        description="Experience Button in the Navbar"/>
-                    </Button>
-                  </LinkContainer>
+                <Nav.Link href="/experience">
+                  <Button
+                    className={`bg-dark active ${selectedButton !== 'about' ?? 'border-0'}`}
+                    variant={selectedButton === 'experience' ? 'secondary' : 'dark'}
+                    size="lg"
+                    onClick={() => this.changeSelectedButton('experience')}
+                  >
+                    <FormattedMessage
+                      id="myWebsite.experience"
+                      defaultMessage="Experience"
+                      description="Experience Button in the Navbar"/>
+                  </Button>
                 </Nav.Link>
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link>
-                  <LinkContainer to="/about">
-                    <Button
-                      className={`bg-dark active ${selectedButton !== 'about' ?? 'border-0'}`}
-                      variant={selectedButton === 'about' ? 'secondary' : 'dark'}
-                      size="lg"
-                      onClick={() => this.changeSelectedButton('about')}
-                    >
-                      <FormattedMessage
-                        id="myWebsite.about"
-                        defaultMessage="About"
-                        description="About Button in the Navbar"/>
-                    </Button>
-                  </LinkContainer>
+                <Nav.Link href="/about">
+                  <Button
+                    className={`bg-dark active ${selectedButton !== 'about' ?? 'border-0'}`}
+                    variant={selectedButton === 'about' ? 'secondary' : 'dark'}
+                    size="lg"
+                    onClick={() => this.changeSelectedButton('about')}
+                  >
+                    <FormattedMessage
+                      id="myWebsite.about"
+                      defaultMessage="About"
+                      description="About Button in the Navbar"/>
+                  </Button>
                 </Nav.Link>
               </Nav.Item>
               {/* <Nav.Item>
-                <Nav.Link>
-                  <LinkContainer to="/store">
-                    <Button
-                      className={`bg-dark active ${selectedButton !== 'store' ?? 'border-0'}`}
-                      variant={selectedButton === 'store' ? 'secondary' : 'dark'}
-                      size="lg"
-                      onClick={() => this.changeSelectedButton('store')}
-                    >
-                      <FormattedMessage
-                        id="myWebsite.store"
-                        defaultMessage="Store"
-                        description="Store Button in the Navbar"/>
-                    </Button>
-                  </LinkContainer>
+                <Nav.Link href="/store">
+                  <Button
+                    className={`bg-dark active ${selectedButton !== 'store' ?? 'border-0'}`}
+                    variant={selectedButton === 'store' ? 'secondary' : 'dark'}
+                    size="lg"
+                    onClick={() => this.changeSelectedButton('store')}
+                  >
+                    <FormattedMessage
+                      id="myWebsite.store"
+                      defaultMessage="Store"
+                      description="Store Button in the Navbar"/>
+                  </Button>
                 </Nav.Link>
               </Nav.Item> */}
             </Nav>

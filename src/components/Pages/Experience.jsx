@@ -18,16 +18,20 @@ class Experience extends Component {
         `I primarily work with React, Java, Ruby, and SQL creating applications that help healthcare workers organize their inventory workflow.`,
         `With 2 years of experience in the workforce, Cerner has given me solid professional skills working on a diverse team of engineers.`,
         `Here is one of the apps on the Play Store that I helped create!`,
-        <a
+        <Button
           href="https://play.google.com/store/apps/details?id=com.cernerpowerchart.inventory&hl=en_US&gl=US"
           target="_blank"
           rel="noreferrer"
+          className="align-content-center"
         >
-          <Button>
-            <Image src={PlayStoreIcon} width="20" style={{ marginRight: "0.5rem" }} />
-            Clincal Inventory Management
-          </Button>
-        </a>
+          <Image
+            src={PlayStoreIcon}
+            className="align-self-center"
+            width="20"
+            style={{ marginRight: "0.5rem" }}
+          />
+          Clincal Inventory Management
+        </Button>
       ],
       link: 'https://www.cerner.com/'
     },
