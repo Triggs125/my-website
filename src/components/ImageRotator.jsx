@@ -142,38 +142,35 @@ class ImageRotator extends Component {
     // There's only one image showing so put the arrow buttons below the image
     if (imagesShowing.length === 1) {
       return (
-        <div ref={(ref) => this.setOuterRef(ref)} className="d-flex justify-content-between align-items-center flex-nowrap mb-5">
+        <div ref={(ref) => this.setOuterRef(ref)} className="d-flex justify-content-between align-items-center flex-nowrap">
           <Button
             ref={(ref) => this.setButtonRef(ref)}
-            className={`image-rotator-button border-0 my-auto px-0 mx-0 arrow-button`}
+            className={`image-rotator-button border-0 arrow-button align-self-stretch`}
             variant="light"
             onClick={() => this.decrementImageIndex()}
           >
-            <h2 className="py-5 my-5 px-2">{"<"}</h2>
+            <h2>{"<"}</h2>
           </Button>
           {
             this.state.renderImages
             ? imagesShowing.map((image) => {
               return (
-                <div className="d-flex-columns text-center">
+                <div className="d-flex flex-column text-center align-items-center">
                   <Image
                     key={`image-0`}
                     id={`image-0`}
                     className={
-                      `image-rotator-image
-                      bg-light
-                      mx-auto
-                      ${image.shadow === true ? 'shadow-image' : ''}
+                      `image-rotator-image\
+                      align-items-center\
+                      bg-light\
+                      mx-auto\
+                      ${image.shadow === true ? 'shadow-image' : ''}\
                       ${image?.rounded ? image.rounded : 'rounded-3'}`
                     }
                     roundedCircle={image?.roundedCircle !== undefined ? image.roundedCircle : true}
                     style={{ width: maxWidth }}
                     src={image?.src}
                   />
-                  <h3 className="mt-5 mx-2 d-flex-columns">
-                    <div>{image?.description}</div>
-                    <a href={image?.link} target="_blank" rel="noreferrer">{image?.link}</a>
-                  </h3>
                 </div>
               );
             }) : (
@@ -181,11 +178,11 @@ class ImageRotator extends Component {
             )
           }
           <Button
-            className={`image-rotator-button border-0 my-auto px-0 mx-0 arrow-button`}
+            className={`image-rotator-button border-0 arrow-button align-self-stretch`}
             variant="light"
             onClick={() => this.incrementImageIndex()}
           >
-            <h2 className="py-5 my-5 px-2">{">"}</h2>
+            <h2>{">"}</h2>
           </Button>
         </div>
       );
@@ -196,18 +193,18 @@ class ImageRotator extends Component {
       <div ref={(ref) => this.setOuterRef(ref)} className="d-flex justify-content-between flex-nowrap">
         <Button
           ref={(ref) => this.setButtonRef(ref)}
-          className={`image-rotator-button border-0 my-auto px-0 mx-0 arrow-button`}
+          className={`image-rotator-button border-0 arrow-button align-self-stretch`}
           variant="light"
           onClick={() => this.decrementImageIndex()}
         >
-          <h2 className="py-5 my-5 px-2">{"<"}</h2>
+          <h2>{"<"}</h2>
         </Button>
-        <div className="wrapper d-flex">
+        <div className="wrapper d-flex align-content-center">
           {
             this.state.renderImages
             ? imagesShowing.map((image, index) => {
               return (
-                <div className="d-flex-columns text-center">
+                <div className="d-flex-columns text-center align-self-center">
                   <Image
                     key={`image-${index}`}
                     id={`image-${index}`}
@@ -227,11 +224,11 @@ class ImageRotator extends Component {
           }
         </div>
         <Button
-          className={`image-rotator-button border-0 my-auto px-0 mx-0 arrow-button`}
+          className={`image-rotator-button border-0 arrow-button align-self-stretch`}
           variant="light"
           onClick={() => this.incrementImageIndex()}
         >
-          <h2 className="py-5 my-5 px-2">{">"}</h2>
+          <h2>{">"}</h2>
         </Button>
       </div>
     )

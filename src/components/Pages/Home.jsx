@@ -1,6 +1,6 @@
 import { Component } from "react";
 import PropTypes from 'prop-types';
-import { Card, Stack } from 'react-bootstrap';
+import { Button, Card, Stack } from 'react-bootstrap';
 import ImageRotator from "../ImageRotator";
 
 import '../../css/Home.css';
@@ -52,7 +52,7 @@ class Home extends Component {
           <Card className="bg-light p-4 border-0">
             <Card.Header
               ref={(ref) => this.ref = ref}
-              className="bg-light float-left"
+              className="bg-light float-left mb-4"
               style={{
                 'marginLeft': '-2rem',
                 'marginRight': '-2rem',
@@ -69,10 +69,11 @@ class Home extends Component {
             <Card.Body>
               <Card.Title>Tanner Driggers</Card.Title>
               <Card.Text>
-                Tanner is a Kansas City based Full-Stack (Frontend Preferred) Software Engineer currently working for Cerner's Supply Chain team.
-                Tanner has professional experience working with JavaScript (Node - React), Ruby, Java (Maven), Docker, and SQL (SQL Developer).
-                Tanner also has experience using GitHub, Postman, Android Studio, Visual Code, Jenkins, Jira, Workday, New Relic, GlobalProtect, and the Office 365 Apps (Teams, Outlook, OneNote, Word, Excel, etc.).
-                Tanner's primary browser choice is Google Chrome and has professional experience using the built in developer tools (They're quite nice 😍).
+                I have many passions including a love of creating music, videos, and software.
+                My favorite type of music is a mix between Rap, Hip-hop, and Pop.
+                I love both cats and dogs, but if I had to choose I'd pick cats as they are more laid back.
+                If there is one thing to know about me it is that if I care about something, I will put in the work to make it happen.
+                Click <Button href="/experience" className="btn btn-light m-0 p-0"><p className="m-0 p-0 pb-1 font-weight-bold">here</p></Button> for my professional experience.
               </Card.Text>
             </Card.Body>
           </Card>

@@ -32,7 +32,7 @@ class Navbar extends Component {
         collapseOnSelect
         bg="dark"
         variant="dark"
-        expand="lg"
+        expand="xl"
         sticky="top"
         className="shadow justify-content-center"
       >
