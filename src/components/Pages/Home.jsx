@@ -57,18 +57,18 @@ class Home extends Component {
               outerRef={this.ref}
             />
             <Card.Body>
-              <Card.Title>Tanner Driggers</Card.Title>
-              <Card.Text>
+              <Card.Title className="text-center">Tanner Driggers</Card.Title>
+              <Card.Text style={{ textAlign: 'justify' }}>
                 I have many passions including a love of creating music, videos, and software.
                 My favorite type of music is a mix between Rap, Hip-hop, and Pop.
                 I love both cats and dogs, but if I had to choose I'd pick cats as they are more laid back.
                 If there is one thing to know about me it is that if I care about something, I will put in the work to make it happen.
               </Card.Text>
-              <Button
-                href="/experience"
-              >
-                Professional Experience
-              </Button>
+              <div className="text-center">
+                <Button href="/experience">
+                  Professional Experience
+                </Button>
+              </div>
             </Card.Body>
           </Card>
         </div>

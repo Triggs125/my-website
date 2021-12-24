@@ -112,7 +112,7 @@ class Navbar extends Component {
                   </Button>
                 </Nav.Link>
               </Nav.Item>
-              <Nav.Item>
+              {/* <Nav.Item>
                 <Nav.Link href="/about">
                   <Button
                     className={`bg-dark active ${selectedButton !== 'about' ?? 'border-0'}`}
@@ -127,7 +127,7 @@ class Navbar extends Component {
                   </Button>
                 </Nav.Link>
               </Nav.Item>
-              {/* <Nav.Item>
+              <Nav.Item>
                 <Nav.Link href="/store">
                   <Button
                     className={`bg-dark active ${selectedButton !== 'store' ?? 'border-0'}`}

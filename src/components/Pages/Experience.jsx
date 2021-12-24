@@ -42,8 +42,8 @@ class Experience extends Component {
       src: KalosLogo,
       alt: "Kalos",
       title: 'Software Intern',
-      startDate: new Date(2018, 5, 1).toLocaleDateString(),
-      endDate: new Date(2018, 7, 2).toLocaleDateString(),
+      startDate: new Date(2018, 4, 21).toLocaleDateString(),
+      endDate: new Date(2018, 7, 3).toLocaleDateString(),
       link: 'https://www.kalos-inc.com/'
     }
   ]
@@ -60,6 +60,18 @@ class Experience extends Component {
       link: 'https://github.com/Triggs125',
     }
   ];
+
+  componentDidMount() {
+    const windowResizeEvent = window.addEventListener('resize', () => {
+      this.setState({});
+    });
+
+    this.setState({ windowResizeEvent });
+  }
+
+  componentWillUnmount() {
+    this.setState({ windowResizeEvent: null });
+  }
 
   section(header, infoArray) {
     return (
@@ -114,8 +126,14 @@ class Experience extends Component {
   }
 
   render() {
+    let margin = '8';
+    if (window.innerWidth < 600) {
+      margin = '0';
+    } else if (window.innerWidth < 1160) {
+      margin = '2'
+    }
     return (
-      <Stack gap={3}>
+      <Stack gap={3} style={{ marginLeft: `${margin}rem`, marginRight: `${margin}rem` }}>
         {this.section("Professional Experience", this.workExperience)}
         {this.section("Tools and Software", this.toolsAndSoftware)}
       </Stack>
