@@ -13,9 +13,12 @@ class Experience extends Component {
   workExperience = [
     {
       src: CernerLogo,
+      alt: "Cerner",
+      startDate: new Date(2020, 6, 15).toLocaleDateString(),
+      endDate: 'Present',
+      title: 'Full-Stack Software Engineer',
       descriptions: [
-        `I currently work at Cerner as a Full-Stack Engineer on the Supply Chain team.`,
-        `I primarily work with React, Java, Ruby, and SQL creating applications that help healthcare workers organize their inventory workflow.`,
+        `I primarily work with React, Java, Ruby, and SQL creating applications that help healthcare workers organize their Supply Chain workflow.`,
         `With 2 years of experience in the workforce, Cerner has given me solid professional skills working on a diverse team of engineers.`,
         `Here is one of the apps on the Play Store that I helped create!`,
         <Button
@@ -37,6 +40,10 @@ class Experience extends Component {
     },
     {
       src: KalosLogo,
+      alt: "Kalos",
+      title: 'Software Intern',
+      startDate: new Date(2018, 5, 1).toLocaleDateString(),
+      endDate: new Date(2018, 7, 2).toLocaleDateString(),
       link: 'https://www.kalos-inc.com/'
     }
   ]
@@ -57,7 +64,7 @@ class Experience extends Component {
   section(header, infoArray) {
     return (
       <div className="bg-light p-0 rounded-1 shadow-lg shadow-image w-100">
-        <Card className="bg-light p-4 border-0">
+        <Card className="bg-light p-3 border-0">
           <Card.Header className="bg-light mx-auto">
             <h1 className="text-center">
               <FormattedMessage
@@ -77,19 +84,25 @@ class Experience extends Component {
                     style={{maxWidth:"500px"}}
                   >
                     <a href={info.link} target="_blank" rel="noreferrer">
-                      <img className="mb-5" src={info.src} width="250" alt="" />
+                      <img className="mb-4" src={info.src} height="160" alt={info.alt} />
                     </a>
+                    <div className="mb-3">
+                      <h2 className="mb-3"><u>{info.title}</u></h2>
+                      {
+                        (info.startDate || info.endDate) &&
+                        <h5>({info.startDate} - {info.endDate})</h5>
+                      }
+                    </div>
                     {
                       info.descriptions?.map((description, j) => {
                         return (
-                          <h4 key={`${header}-description-${j}`} className="mb-4">
+                          <h4 key={`${header}-description-${j}`} className="mb-3">
                             {description}
                           </h4>
                         )
                       })
                     }
                     <h4 className="mt-4">{info.description}</h4>
-                    {/* <a href={info.link}><h5>{info.link}</h5></a> */}
                   </Card.Body>
                 );
               })

@@ -15,8 +15,23 @@ class Navbar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedButton: 'home',
+      selectedButton: window.location?.pathname === '/' ? 'home' : window.location?.pathname?.substring(1),
+      windowWidth: window.innerWidth,
+      windowheight: window.innerHeight,
     }
+  }
+
+  componentDidMount() {
+    const resizeEventListener = window.addEventListener('resize', () => {
+      const { innerWidth: windowWidth, innerHeight: windowheight } = window;
+      this.setState({ windowWidth, windowheight });
+    });
+
+    this.setState({resizeEventListener});
+  }
+
+  componentWillUnmount() {
+    this.setState({resizeEventListener: null});
   }
 
   changeSelectedButton(selectedButton) {
@@ -24,7 +39,14 @@ class Navbar extends Component {
   }
 
   render() {
-    const { selectedButton } = this.state;
+    const { selectedButton, windowWidth } = this.state;
+
+    let marginLeft = `${0.5 * calculateTextWidth('Tanner Driggers', `normal 500 ${50}px system-ui`)}px`;
+    if (windowWidth < 520) {
+      marginLeft = '50%';
+    } else if (windowWidth < 775) {
+      marginLeft = `${0.5 * calculateTextWidth('Tanner Driggers', `normal 500 ${40}px system-ui`)}px`;
+    }
 
     return (
       <NavBar
@@ -39,7 +61,7 @@ class Navbar extends Component {
         <Container id="navbar-container" className="mx-2 flex-nowrap">
           <NavBar.Brand
             style={{
-              "marginLeft": `calc(50% - ${0.5 * calculateTextWidth('Tanner Driggers', `normal 500 50px system-ui`)}px)`,
+              "marginLeft": `calc(50% - ${marginLeft})`,
             }}
           >
             <LinkContainer to="/">

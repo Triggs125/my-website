@@ -48,24 +48,14 @@ class Home extends Component {
 
     return (
       <Stack gap={4} className={`shadow-image`}>
-        <div className="bg-light p-2 rounded-1 shadow-lg">
-          <Card className="bg-light p-4 border-0">
-            <Card.Header
-              ref={(ref) => this.ref = ref}
-              className="bg-light float-left mb-4"
-              style={{
-                'marginLeft': '-2rem',
-                'marginRight': '-2rem',
-                'paddingLeft': '-2rem',
-                'paddingRight': '-2rem'
-              }}
-            >
-              <ImageRotator
-                images={images}
-                maxWidth={400}
-                backgroundColor={this.props.backgroundColor}
-                outerRef={this.ref} />
-            </Card.Header>
+        <div className="bg-light p-2 pt-0 rounded-1 shadow-lg">
+          <Card className="bg-light p-3 pt-0 border-0">
+            <ImageRotator
+              images={images}
+              maxWidth={400}
+              backgroundColor={this.props.backgroundColor}
+              outerRef={this.ref}
+            />
             <Card.Body>
               <Card.Title>Tanner Driggers</Card.Title>
               <Card.Text>

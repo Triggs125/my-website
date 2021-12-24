@@ -33,14 +33,18 @@ class ImageRotator extends Component {
 
   componentDidMount() {
     const imagesShowing = this.calculateImagesToShow(this.state.firstImageIndex);
-    this.setState({ imagesShowing: imagesShowing });
-    console.log("Image Rotator CDM")
 
-    window.addEventListener('resize', () => {
+    const windowResizeEvent = window.addEventListener('resize', () => {
       this.resetImageInterval();
       const imagesToShow = this.calculateImagesToShow(this.state.firstImageIndex);
       this.setState({ imagesShowing: imagesToShow });
     });
+
+    this.setState({ imagesShowing, windowResizeEvent });
+  }
+
+  componentWillUnmount() {
+    this.setState({ windowResizeEvent: null });
   }
 
   calculateImagesToShow(firstImageIndex) {
@@ -48,13 +52,17 @@ class ImageRotator extends Component {
     const { images, maxWidth, maxImagesOnScreen } = this.props;
     
     const imagesToShow = [];
+    let outerRef, buttonRef;
     if (!renderImages) {
-      this.resetImageInterval();
-      return [images[0]];
+      outerRef = { offsetWidth: window.innerWidth - 36};
+      buttonRef = { offsetWidth: 44.25 }
+    } else {
+      outerRef = this.outerRef;
+      buttonRef = this.buttonRef;
     }
 
     // Calculate the width of the outer component
-    const widthOfOuterComponent = (this.outerRef?.offsetWidth - 100) - (2 * (this.buttonRef?.offsetWidth + 48));
+    const widthOfOuterComponent = (outerRef?.offsetWidth - 100) - (2 * (buttonRef?.offsetWidth + 48));
     // Set an average image width of 400px which is the max width an image can be
     const aveImageWidth = maxWidth ? maxWidth : 400;
     // Get the max number of components that fit across the page
@@ -136,93 +144,56 @@ class ImageRotator extends Component {
   }
 
   render() {
-    const { backgroundColor, maxWidth } = this.props;
+    const { backgroundColor } = this.props;
     const { imagesShowing } = this.state;
 
-    // There's only one image showing so put the arrow buttons below the image
-    if (imagesShowing.length === 1) {
-      return (
-        <div ref={(ref) => this.setOuterRef(ref)} className="d-flex justify-content-between align-items-center flex-nowrap">
-          <Button
-            ref={(ref) => this.setButtonRef(ref)}
-            className={`image-rotator-button border-0 arrow-button align-self-stretch`}
-            variant="light"
-            onClick={() => this.decrementImageIndex()}
-          >
-            <h2>{"<"}</h2>
-          </Button>
-          {
-            this.state.renderImages
-            ? imagesShowing.map((image) => {
-              return (
-                <div className="d-flex flex-column text-center align-items-center">
-                  <Image
-                    key={`image-0`}
-                    id={`image-0`}
-                    className={
-                      `image-rotator-image\
-                      align-items-center\
-                      bg-light\
-                      mx-auto\
-                      ${image.shadow === true ? 'shadow-image' : ''}\
-                      ${image?.rounded ? image.rounded : 'rounded-3'}`
-                    }
-                    roundedCircle={image?.roundedCircle !== undefined ? image.roundedCircle : true}
-                    style={{ width: maxWidth }}
-                    src={image?.src}
-                  />
-                </div>
-              );
-            }) : (
-              <Spinner animation="grow" variant={backgroundColor} />
-            )
-          }
-          <Button
-            className={`image-rotator-button border-0 arrow-button align-self-stretch`}
-            variant="light"
-            onClick={() => this.incrementImageIndex()}
-          >
-            <h2>{">"}</h2>
-          </Button>
-        </div>
-      );
-    }
-
-    // More than one image so put the arrow buttons on each side
     return (
-      <div ref={(ref) => this.setOuterRef(ref)} className="d-flex justify-content-between flex-nowrap">
+      <div
+        ref={(ref) => this.setOuterRef(ref)}
+        className="d-flex justify-content-between align-items-center align-items-stretch flex-nowrap"
+        style={{
+          'marginLeft': '-1.5rem',
+          'marginRight': '-1.5rem',
+          'paddingLeft': '-2rem',
+          'paddingRight': '-2rem',
+          'minHeight': '475px',
+        }}
+      >
         <Button
           ref={(ref) => this.setButtonRef(ref)}
-          className={`image-rotator-button border-0 arrow-button align-self-stretch`}
+          className="image-rotator-button border-0 arrow-button align-self-stretch"
           variant="light"
           onClick={() => this.decrementImageIndex()}
         >
           <h2>{"<"}</h2>
         </Button>
-        <div className="wrapper d-flex align-content-center">
-          {
-            this.state.renderImages
-            ? imagesShowing.map((image, index) => {
-              return (
-                <div className="d-flex-columns text-center align-self-center">
-                  <Image
-                    key={`image-${index}`}
-                    id={`image-${index}`}
-                    className={`image-rotator-image bg-light ${image.shadow === true ? 'shadow-image' : ''} m-5 ${image.rounded ? image.rounded : 'rounded-3'}`}
-                    roundedCircle={image.roundedCircle !== undefined ? image.roundedCircle : true}
-                    style={{ width: maxWidth }}
-                    src={image.src}
-                  />
-                  <h3 className="mt-5 mx-2">
-                    {image?.description}
-                  </h3>
-                </div>
-              );
-            }) : (
-              <Spinner animation="grow" variant={backgroundColor} />
-            )
-          }
-        </div>
+        {
+          this.state.renderImages
+          ? imagesShowing.map((image) => {
+            return (
+              <div className="d-flex flex-column text-center align-items-center mb-4">
+                <Image
+                  key={`image-0`}
+                  id={`image-0`}
+                  className={
+                    `my-auto\
+                    image-rotator-image\
+                    align-items-center\
+                    bg-light\
+                    mx-auto\
+                    align-content-center\
+                    ${image.shadow === undefined || image.shadow === true ? 'shadow-image' : ''}\
+                    ${image?.rounded ? image.rounded : 'rounded-3'}`
+                  }
+                  roundedCircle={image?.roundedCircle !== undefined ? image.roundedCircle : true}
+                  src={image?.src}
+                />
+              </div>
+            );
+          }) : (
+            <Spinner animation="grow" variant={backgroundColor} />
+          )
+        }
         <Button
           className={`image-rotator-button border-0 arrow-button align-self-stretch`}
           variant="light"
@@ -231,7 +202,7 @@ class ImageRotator extends Component {
           <h2>{">"}</h2>
         </Button>
       </div>
-    )
+    );
   }
 }
 
