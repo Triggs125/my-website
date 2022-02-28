@@ -91,7 +91,8 @@ class Home extends Component {
                     mx-auto\
                     align-content-center\
                     shadow-image\
-                    rounded-3`
+                    rounded-3\
+                    mb-1`
                   }
                   roundedCircle={true}
                   src={'https://pbs.twimg.com/profile_images/1270768565487091714/ny6y8A5Q_400x400.png'}
@@ -119,6 +120,7 @@ class Home extends Component {
                   <li><strong>Iced Coffee w/ Creamer</strong></li>
                   <ul>
                     <li>Iced white mocha with vanilla</li>
+                    <li>I love my Nespresso machine</li>
                   </ul>
                   <li><strong>Sports</strong></li>
                     <ul>
