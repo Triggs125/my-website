@@ -58,8 +58,10 @@ class Home extends Component {
             />
             <Card.Body className="mx-3 text-center">
               <Card.Header className="text-center border border-3 mb-4" style={{ display: "inline-block" }}>
-                “Before you marry a person, you should first make them use a computer with slow Internet to see who they really are.”
-                <br/>—Will Ferrell
+                <div>
+                  “Before you marry a person, you should first make them use a computer with slow Internet to see who they really are.”
+                  <br/>—Will Ferrell
+                </div>
               </Card.Header>
               <br/>
               <div className="text-center">
@@ -80,23 +82,25 @@ class Home extends Component {
             <Card.Body className="rounded-3 my-0">
               <h2 className="text-center">Bachelors of Science in Computer Science</h2>
               <div className="d-flex flex-column text-center align-items-center mb-4 mt-5">
-                <Image
-                  key={'kstate-image'}
-                  id={'kstate-image'}
-                  className={
-                    `my-auto\
-                    image-rotator-image\
-                    align-items-center\
-                    bg-light\
-                    mx-auto\
-                    align-content-center\
-                    shadow-image\
-                    rounded-3\
-                    mb-1`
-                  }
-                  roundedCircle={true}
-                  src={'https://pbs.twimg.com/profile_images/1270768565487091714/ny6y8A5Q_400x400.png'}
-                />
+                <a href="https://www.cs.ksu.edu/" target="_blank" rel="noreferrer">
+                  <Image
+                    key={'kstate-image'}
+                    id={'kstate-image'}
+                    className={
+                      `my-auto\
+                      image-rotator-image\
+                      align-items-center\
+                      bg-light\
+                      mx-auto\
+                      align-content-center\
+                      shadow-image\
+                      rounded-3\
+                      mb-1`
+                    }
+                    roundedCircle={true}
+                    src={'https://pbs.twimg.com/profile_images/1270768565487091714/ny6y8A5Q_400x400.png'}
+                  />
+                </a>
               </div>
             </Card.Body>
           </Card>
