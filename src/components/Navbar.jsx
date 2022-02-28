@@ -83,22 +83,19 @@ class Navbar extends Component {
           <NavBar.Collapse id="navbar-nav">
             <Nav className="me-auto">
               <Nav.Item>
-                <Nav.Link href="/">
+                <Nav.Link href="/" style={{ textAlign: "right" }}>
                   <Button
                     className={`bg-dark ${selectedButton !== 'home' ?? 'border-0'}`}
                     variant={selectedButton === 'home' ? 'secondary' : 'dark'}
                     size="lg"
                     onClick={() => this.changeSelectedButton('home')}
                   >
-                    <FormattedMessage
-                      id="myWebsite.home"
-                      defaultMessage="Home"
-                      description="Home Button in the Navbar"/>
+                    Home
                   </Button>
                 </Nav.Link>
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link href="/experience">
+                <Nav.Link href="/experience" style={{ textAlign: "right" }}>
                   <Button
                     className={`bg-dark active ${selectedButton !== 'about' ?? 'border-0'}`}
                     variant={selectedButton === 'experience' ? 'secondary' : 'dark'}

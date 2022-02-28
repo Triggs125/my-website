@@ -18,13 +18,13 @@ class App extends Component {
     super(props);
 
     this.state = {
-      pageBackground: backgroundColors[0]
+      pageBackground: backgroundColors[5]
     }
     document.body.style.backgroundColor = this.state.pageBackground;
   }
 
   componentDidMount() {
-    let i = 1;
+    let i = backgroundColors.findIndex((background) => background === this.state.pageBackground);
     setInterval(() => {
       this.setState({ pageBackground: backgroundColors[i]});
       if (i >= backgroundColors.length - 1) i = -1;
@@ -33,7 +33,7 @@ class App extends Component {
   }
 
   render() {
-    const { pageBackground } = this.state;
+    const { pageBackground, nextColor } = this.state;
     document.body.style.backgroundColor = pageBackground;
 
     return (
@@ -46,8 +46,7 @@ class App extends Component {
             <Route
               exact
               path="/"
-              component={Home}
-              backgroundColor={pageBackground}
+              render={(props) => <Home {...props} backgroundColor={pageBackground} nextColor={nextColor} />}
             />
             <Route exact path="/experience" component={Experience} />
             <Route exact path="/about" component={About} />

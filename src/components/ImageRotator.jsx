@@ -109,7 +109,7 @@ class ImageRotator extends Component {
     this.setState({ imageInterval: setTimeout(() => this.incrementImageIndex(), imageScrollTimeout ? imageScrollTimeout : 5000) });
   }
 
-  incrementImageIndex() {
+  incrementImageIndex(buttonRef) {
     const { firstImageIndex } = this.state;
     const { images } = this.props;
 
@@ -118,10 +118,11 @@ class ImageRotator extends Component {
     else imageIndex = firstImageIndex + 1; // this.setState({ firstImageIndex: firstImageIndex + 1});
 
     const imagesShowing = this.calculateImagesToShow(imageIndex);
+    // this.fadeButtonBackground(buttonRef);
     this.setState({ firstImageIndex: imageIndex, imagesShowing: imagesShowing });
   }
 
-  decrementImageIndex() {
+  decrementImageIndex(buttonRef) {
     const { firstImageIndex } = this.state;
     const { images } = this.props;
 
@@ -130,8 +131,14 @@ class ImageRotator extends Component {
     else imageIndex = firstImageIndex  - 1; // this.setState({ firstImageIndex: firstImageIndex - 1 });
 
     const imagesShowing = this.calculateImagesToShow(imageIndex);
+    // this.fadeButtonBackground(buttonRef);
     this.setState({ firstImageIndex: imageIndex, imagesShowing: imagesShowing });
   }
+
+  // fadeButtonBackground(buttonRef) {
+  //   if (!buttonRef) return;
+  //   buttonRef.target.style.backgroundColor = "var(--bs-light) !important";
+  // }
 
   setOuterRef(ref) {
     this.outerRef = ref;
@@ -150,20 +157,17 @@ class ImageRotator extends Component {
     return (
       <div
         ref={(ref) => this.setOuterRef(ref)}
-        className="d-flex justify-content-between align-items-center align-items-stretch flex-nowrap"
+        className="d-flex mx-0 justify-content-between align-items-center align-items-stretch flex-nowrap"
         style={{
-          'marginLeft': '-1.5rem',
-          'marginRight': '-1.5rem',
-          'paddingLeft': '-2rem',
-          'paddingRight': '-2rem',
           'minHeight': '475px',
         }}
       >
         <Button
+          id="decrementButton"
           ref={(ref) => this.setButtonRef(ref)}
-          className="image-rotator-button border-0 arrow-button align-self-stretch"
+          className="image-rotator-button rounded-0 border-0 arrow-button align-self-stretch"
           variant="light"
-          onClick={() => this.decrementImageIndex()}
+          onClick={(button) => this.decrementImageIndex(button)}
         >
           <h2>{"<"}</h2>
         </Button>
@@ -195,9 +199,10 @@ class ImageRotator extends Component {
           )
         }
         <Button
-          className={`image-rotator-button border-0 arrow-button align-self-stretch`}
+          id="incrementButton"
+          className={`image-rotator-button rounded-0 border-0 arrow-button align-self-stretch`}
           variant="light"
-          onClick={() => this.incrementImageIndex()}
+          onClick={(button) => this.incrementImageIndex(button)}
         >
           <h2>{">"}</h2>
         </Button>
