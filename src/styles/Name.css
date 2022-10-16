@@ -1,0 +1,40 @@
+video {
+  height: 100%;
+  width: 100%;
+  clip-path: url(#text-overlay);
+}
+
+video::-webkit-scrollbar {
+  display: none;
+}
+
+#text-overlay-svg {
+  font-weight: 600;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+@media screen and (max-width: 730px) {
+  #name-text {
+    font-size: 5rem;
+  }
+  #name-description-text {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (max-width: 610px) {
+  #name-text {
+    font-size: 4rem;
+  }
+}
+
+@media screen and (max-width: 490px) {
+  #name-text {
+    font-size: 3rem;
+  }
+  #name-description-text {
+    font-size: 1.5rem;
+  }
+}

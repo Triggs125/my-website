@@ -1,31 +1,36 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { IntlProvider } from "react-intl";
-import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
-import thunk from 'redux-thunk';
-import { composeWithDevTools } from 'redux-devtools-extension';
-import rootReducer from './reducers';
-
-import App from './components/App';
+// import { Provider } from 'react-redux';
+// import { createStore, applyMiddleware } from 'redux';
+// import thunk from 'redux-thunk';
+// import { composeWithDevTools } from 'redux-devtools-extension';
+// import rootReducer from './reducers';
 import reportWebVitals from './reportWebVitals';
 
 // Importing the Bootstrap CSS
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
+import Home from './pages/Home';
+import { ThemeProvider } from '@mui/material';
+import { theme } from './styles/theme';
 
-const store = createStore(
-  rootReducer,
-  composeWithDevTools(applyMiddleware(thunk))
-);
+// const store = createStore(
+//   rootReducer,
+//   composeWithDevTools(applyMiddleware(thunk))
+// );
+
+document.body.style.backgroundColor = theme.palette.background.default;
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
+    <ThemeProvider theme={theme}>
+    {/* <Provider store={store}> */}
       <IntlProvider locale="en">
-        <App />
+        <Home />
       </IntlProvider>
-    </Provider>
+    {/* </Provider> */}
+    </ThemeProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
