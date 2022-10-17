@@ -10,6 +10,7 @@ const constants = {
   colorGithub: '',
   textPrimary: '#000',
   textSecondary: '#fff',
+  textRed: '#B40039',
   shadows: [
     'none',
     '0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12)',
@@ -58,7 +59,8 @@ const theme = createTheme({
       primary: constants.textPrimary,
       secondary: constants.textSecondary,
       disabled: constants.textDisabled,
-      hint: constants.textHint
+      hint: constants.textHint,
+      video: constants.textRed
     },
     background: {
       default: constants.colorLight

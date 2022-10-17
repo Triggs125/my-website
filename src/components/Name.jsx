@@ -1,5 +1,5 @@
 import "../styles/Name.css";
-import textOverlayVideo from "../assets/text-overlay_red-fluid-slow.mp4";
+import textOverlayVideo from "../assets/text-overlay_red-fluid_slow.mp4";
 import { constants, theme } from "../styles/theme";
 import { Typography } from "@mui/material";
 import { useEffect, useState } from "react";
@@ -51,6 +51,7 @@ function Name() {
       <video
         src={textOverlayVideo}
         autoPlay loop muted
+        style={{ backgroundColor: theme.palette.text.video }}
       />
     </div>
   )
