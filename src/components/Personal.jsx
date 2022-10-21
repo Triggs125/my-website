@@ -1,13 +1,14 @@
+import { useEffect, useState } from "react";
 import { Box, Button, Container, ImageList, ImageListItem, Typography } from "@mui/material";
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import { theme } from "../styles/theme";
+import "../styles/Personal.css";
 
 import MyselfOutdoors from '../assets/images/myself_outdoors.jpg';
 import Myself from '../assets/images/myself.jpg';
 import MyselfKstateBuilding from '../assets/images/myself_kstate_building.jpg';
 import MyselfKstateFreshman from '../assets/images/myself_kstate_freshman.jpg';
-import { useEffect, useState } from "react";
 
 const images = [
   {
@@ -54,11 +55,10 @@ function Personal() {
     <Container
       id="personal-info-section"
       sx={{
-        minHeight: window.innerHeight,
         paddingTop: '2rem'
       }}
     >
-      <Typography variant="h5" textAlign="center">
+      <Typography variant="h5" textAlign="center" id="about-paragraph">
         Hi! I'm Tanner Driggers, a Frontend Software Engineer based in KC who is passionate about developing responsive
         digital experiences through problem-solving, creativity, and communication. I love creating robust, testable components that combine visual
         design with practical innovation.
@@ -97,7 +97,7 @@ function Personal() {
       >
         {
           images.slice(0, innerWidth < 800 ? 2 : 4).map((image, index) => (
-            <ImageListItem key={image.src}>
+            <ImageListItem key={image.src} className="personal-image">
               <img
                 src={image.src}
                 alt={image.alt}

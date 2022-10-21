@@ -1,0 +1,11 @@
+.project-image {
+  border-radius: 1rem;
+  width: 400px;
+  aspect-ratio: 1 / 1;
+}
+
+@media screen and (max-width: 490px) {
+  .project-image {
+    width: 100%;
+  }
+}

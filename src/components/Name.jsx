@@ -13,13 +13,13 @@ function Name() {
 
   const handleScroll = () => {
     let scrollTop = window.scrollY;
-    let minHeight = 170;
+    let minHeight = 500;
     let height = Math.max(minHeight, window.innerHeight - scrollTop);
     setHeight(height);
   }
   
   return (
-    <div style={{ height }}>
+    <div style={{ height }} id="Name">
       <svg id="text-overlay-svg" height={height} width="100%">
         <clipPath id="text-overlay">
           <Typography
