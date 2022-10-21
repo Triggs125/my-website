@@ -20,6 +20,7 @@ function Navbar() {
 
   return (
     <Box
+      id="navbar"
       sx={{
         opacity,
         width: '100%',

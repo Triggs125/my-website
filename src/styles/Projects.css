@@ -6,6 +6,6 @@
 
 @media screen and (max-width: 490px) {
   .project-image {
-    width: 100%;
+    width: max(90%, 100px);
   }
 }

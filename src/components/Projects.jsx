@@ -7,7 +7,7 @@ import { theme } from "../styles/theme";
 function Projects() {
   return (
     <Container
-      id="Projects"
+      id="personal-projects"
       sx={{
         marginTop: '6rem',
         marginBottom: '2rem'
@@ -17,13 +17,14 @@ function Projects() {
       <Box
         sx={{
           display: 'flex',
-          gap: theme.spacing(2),
+          gap: theme.spacing(4),
           marginTop: '2rem',
-          justifyContent: 'space-evenly'
+          justifyContent: 'space-evenly',
+          flexWrap: 'wrap'
         }}
       >
-        <Box>
-          <Typography variant="h4" textAlign='center' marginBottom='1rem'>Food Picker</Typography>
+        <Box class="image-box">
+          <Typography variant="h4" textAlign='center' marginBottom='0.5rem'>Food Picker</Typography>
           <Button sx={{ padding: 0 }} href="https://my-food-picker.web.app/" target="_blank">
             <img
               src={FoodPickerLogo}
@@ -34,8 +35,8 @@ function Projects() {
             />
           </Button>
         </Box>
-        <Box>
-          <Typography variant="h4" textAlign='center' marginBottom='1rem'>Oscar Picker</Typography>
+        <Box class="image-box">
+          <Typography variant="h4" textAlign='center' marginBottom='0.5rem'>Oscar Picker</Typography>
           <Button sx={{ padding: 0 }} href="https://oscarpicker-85422.firebaseapp.com/" target="_blank">
             <img
               src={OscarLogo}

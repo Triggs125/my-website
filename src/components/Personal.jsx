@@ -53,7 +53,7 @@ function Personal() {
 
   return (
     <Container
-      id="personal-info-section"
+      id="about-me"
       sx={{
         paddingTop: '2rem'
       }}
