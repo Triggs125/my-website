@@ -31,7 +31,7 @@ function Projects() {
               alt="Food Picker"
               id="food-picker-logo"
               class="project-image"
-              style={{ boxShadow: theme.shadows[4] }}
+              style={{ boxShadow: theme.shadows[6] }}
             />
           </Button>
         </Box>
@@ -43,7 +43,7 @@ function Projects() {
               alt="Oscar Picker"
               id="oscar-picker-logo"
               class="project-image"
-              style={{ boxShadow: theme.shadows[4] }}
+              style={{ boxShadow: theme.shadows[6] }}
             />
           </Button>
         </Box>

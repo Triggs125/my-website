@@ -5,16 +5,12 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import { theme } from "../styles/theme";
 import "../styles/Personal.css";
 
-import MyselfOutdoors from '../assets/images/myself_outdoors.jpg';
+import MyselfViv from '../assets/images/myself_viv_vegas.jpg';
 import Myself from '../assets/images/myself.jpg';
 import MyselfKstateBuilding from '../assets/images/myself_kstate_building.jpg';
 import MyselfKstateFreshman from '../assets/images/myself_kstate_freshman.jpg';
 
 const images = [
-  {
-    src: MyselfOutdoors,
-    alt: ""
-  },
   {
     src: Myself,
     alt: ""
@@ -26,6 +22,10 @@ const images = [
   {
     src: MyselfKstateFreshman,
     alt: ""
+  },
+  {
+    src: MyselfViv,
+    alt: "My girlfriend, Vivian, and myself in Las Vegas looking around at CES."
   }
 ];
 
@@ -36,11 +36,12 @@ function Personal() {
     const scrollTop = window.innerHeight - window.scrollY;
     let minHeight = window.innerWidth < 800 ? theme.spacing(2) : theme.spacing(4);
     minHeight = minHeight.slice(0, -2);
+    const start = 100;
     return [
-      Math.max(minHeight, scrollTop - 500),
-      Math.max(minHeight, scrollTop - 550),
-      Math.max(minHeight, scrollTop - 600),
-      Math.max(minHeight, scrollTop - 650)
+      Math.max(minHeight, scrollTop - start),
+      Math.max(minHeight, scrollTop - (start + 50)),
+      Math.max(minHeight, scrollTop - (start + 100)),
+      Math.max(minHeight, scrollTop - (start + 150))
     ];
   }
   
@@ -60,7 +61,7 @@ function Personal() {
     >
       <Typography variant="h5" textAlign="center" id="about-paragraph">
         Hi! I'm Tanner Driggers, a Frontend Software Engineer based in KC who is passionate about developing responsive
-        digital experiences through problem-solving, creativity, and communication. I love creating robust, testable components that combine visual
+        digital experiences through problem-solving, creativity, and communication. I love creating robust, testable components combining visual
         design with practical innovation.
       </Typography>
       <Box
@@ -102,7 +103,7 @@ function Personal() {
                 src={image.src}
                 alt={image.alt}
                 style={{
-                  boxShadow: theme.shadows[4],
+                  boxShadow: theme.shadows[2],
                   borderRadius: theme.shape.borderRadius,
                   marginTop: height[index],
                   display: "inline-block"
