@@ -11,6 +11,7 @@ const constants = {
   textPrimary: '#000',
   textSecondary: '#fff',
   textRed: '#B40039',
+  kstatePurple: '#512888',
   shadows: [
     'none',
     '0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12)',
@@ -60,7 +61,8 @@ const theme = createTheme({
       secondary: constants.textSecondary,
       disabled: constants.textDisabled,
       hint: constants.textHint,
-      video: constants.textRed
+      video: constants.textRed,
+      kstate: constants.kstatePurple
     },
     background: {
       default: constants.colorLight
@@ -70,7 +72,45 @@ const theme = createTheme({
       github: constants.textPrimary
     }
   },
-  shadows: constants.shadows
+  shadows: constants.shadows,
+  components: {
+    MuiTypography: {
+      variants: [
+        {
+          props: { variant: 'h1' },
+          style: {
+            fontSize: '3.052rem',
+            fontWeight: 600
+          },
+        },
+        {
+          props: { variant: 'h2' },
+          style: {
+            fontSize: '2.441rem',
+            fontWeight: 500
+          },
+        },
+        {
+          props: { variant: 'h3' },
+          style: {
+            fontSize: '1.953rem'
+          },
+        },
+        {
+          props: { variant: 'h4' },
+          style: {
+            fontSize: '1.563rem'
+          },
+        },
+        {
+          props: { variant: 'h5' },
+          style: {
+            fontSize: '1.25rem'
+          },
+        },
+      ]
+    }
+  }
 });
 
 export { theme, makeStyles, constants }

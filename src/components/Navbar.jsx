@@ -36,7 +36,7 @@ function Navbar() {
         boxShadow: theme.shadows[3]
       }}
     >
-      <Typography variant="h5" sx={{ opacity }} textAlign="center">Tanner Driggers</Typography>
+      <Typography variant="h3" sx={{ opacity }} textAlign="center">Tanner Driggers</Typography>
     </Box>
   );
 }

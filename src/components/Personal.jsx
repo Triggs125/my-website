@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Box, Button, Container, ImageList, ImageListItem, Typography } from "@mui/material";
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
+import DescriptionIcon from '@mui/icons-material/Description';
 import { theme } from "../styles/theme";
 import "../styles/Personal.css";
 
@@ -36,12 +37,13 @@ function Personal() {
     const scrollTop = window.innerHeight - window.scrollY;
     let minHeight = window.innerWidth < 800 ? theme.spacing(2) : theme.spacing(4);
     minHeight = minHeight.slice(0, -2);
-    const start = 100;
+    const start = 90;
+    const split = 70;
     return [
       Math.max(minHeight, scrollTop - start),
-      Math.max(minHeight, scrollTop - (start + 50)),
-      Math.max(minHeight, scrollTop - (start + 100)),
-      Math.max(minHeight, scrollTop - (start + 150))
+      Math.max(minHeight, scrollTop - (start + split)),
+      Math.max(minHeight, scrollTop - (start + (split * 2))),
+      Math.max(minHeight, scrollTop - (start + (split * 3)))
     ];
   }
   
@@ -56,10 +58,14 @@ function Personal() {
     <Container
       id="about-me"
       sx={{
-        paddingTop: '2rem'
+        paddingTop: '2rem',
+        display: 'flex',
+        flexWrap: 'wrap',
+        justifyContent: 'space-evenly',
+        gap: '1rem'
       }}
     >
-      <Typography variant="h5" textAlign="center" id="about-paragraph">
+      <Typography variant="h5" textAlign="center" id="about-paragraph" maxWidth="500px">
         Hi! I'm Tanner Driggers, a Frontend Software Engineer based in KC who is passionate about developing responsive
         digital experiences through problem-solving, creativity, and communication. I love creating robust, testable components combining visual
         design with practical innovation.
@@ -75,6 +81,7 @@ function Personal() {
           href="https://www.linkedin.com/in/tannerdriggers/"
           target="_blank"
           sx={{ padding: 0 }}
+          title="My LinkedIn profile"
         >
           <LinkedInIcon sx={{ fontSize: '4rem', color: theme.palette.icons.linkedin }} />
         </Button>
@@ -83,11 +90,22 @@ function Personal() {
           href="https://github.com/Triggs125"
           target="_blank"
           sx={{ padding: 0 }}
+          title="My GitHub profile"
         >
           <GitHubIcon sx={{ fontSize: '4rem', color: theme.palette.icons.github }} />
         </Button>
+        <Button
+          variant="text"
+          href="https://drive.google.com/file/d/1bvUiscv_aP6g1qA0_6zzsexb5zY1fbaU/view?usp=sharing"
+          target="_blank"
+          sx={{ padding: 0 }}
+          title="My resume"
+        >
+          <DescriptionIcon sx={{ fontSize: '4rem' }} />
+        </Button>
       </Box>
       <ImageList
+        className="scrollbar-none"
         sx={{
           paddingY: "1rem"
         }}
