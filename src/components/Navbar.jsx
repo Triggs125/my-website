@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { theme } from "../styles/theme";
 
 function getOpacity() {
-  const halfHeight = window.innerHeight / 2;
+  const halfHeight = window.innerHeight;
   const opacity = Math.min(1, 0 + (Math.min(window.scrollY, halfHeight) / halfHeight));
   return opacity;
 }

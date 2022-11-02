@@ -7,11 +7,13 @@ import { Box } from "@mui/system";
 
 function Home() {
   return (
-    <Box display={"flex"} flexDirection="column" gap="6rem" paddingBottom={'2rem'}>
+    <Box display={"flex"} flexDirection="column" gap="3rem" paddingBottom={'2rem'}>
       <Navbar />
       <Name />
       <Personal />
+      <hr />
       <School />
+      <hr />
       <Projects />
     </Box>
   )

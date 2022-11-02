@@ -17,7 +17,9 @@ video::-webkit-scrollbar {
 
 #name-text {
   font-size: 6rem !important;
+  text-shadow: .1rem .1rem .2rem gray;
 }
+
 #name-description-text {
   font-size: 3rem !important;
 }

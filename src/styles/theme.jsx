@@ -5,7 +5,7 @@ const constants = {
   colorSecondary: '#6666FF',
   colorHighlight: '#66FFCC',
   colorError: '#FF6666',
-  colorLight: '#f0f3f5',
+  colorLight: '#fafafa',
   colorLinkedin: '#0077B5',
   colorGithub: '',
   textPrimary: '#000',

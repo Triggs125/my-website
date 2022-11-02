@@ -81,7 +81,7 @@ function Personal() {
           href="https://www.linkedin.com/in/tannerdriggers/"
           target="_blank"
           sx={{ padding: 0 }}
-          title="My LinkedIn profile"
+          title="LinkedIn"
         >
           <LinkedInIcon sx={{ fontSize: '4rem', color: theme.palette.icons.linkedin }} />
         </Button>
@@ -90,7 +90,7 @@ function Personal() {
           href="https://github.com/Triggs125"
           target="_blank"
           sx={{ padding: 0 }}
-          title="My GitHub profile"
+          title="GitHub"
         >
           <GitHubIcon sx={{ fontSize: '4rem', color: theme.palette.icons.github }} />
         </Button>
@@ -99,7 +99,7 @@ function Personal() {
           href="https://drive.google.com/file/d/1bvUiscv_aP6g1qA0_6zzsexb5zY1fbaU/view?usp=sharing"
           target="_blank"
           sx={{ padding: 0 }}
-          title="My resume"
+          title="Resume"
         >
           <DescriptionIcon sx={{ fontSize: '4rem' }} />
         </Button>

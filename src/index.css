@@ -24,3 +24,15 @@ small, .text_small {font-size: 0.8rem;}
 .scrollbar-none::-webkit-scrollbar {
   display: none;
 }
+
+hr {
+  width: 70%;
+  display: flex;
+  align-self: center;
+}
+
+@media screen and (max-width: 1300px) {
+  hr {
+    width: 90%;
+  }
+}
