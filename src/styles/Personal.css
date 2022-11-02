@@ -1,0 +1,9 @@
+@media screen and (max-width: 490px) {
+  #about-paragraph {
+    font-size: 1.2rem;
+  }
+
+  .personal-image {
+    height: 350px !important;
+  }
+}

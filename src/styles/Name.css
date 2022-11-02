@@ -1,0 +1,50 @@
+video {
+  height: 100%;
+  width: 100%;
+  clip-path: url(#text-overlay);
+}
+
+video::-webkit-scrollbar {
+  display: none;
+}
+
+#text-overlay-svg {
+  font-weight: 600;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#name-text {
+  font-size: 6rem !important;
+  text-shadow: .1rem .1rem .2rem gray;
+}
+
+#name-description-text {
+  font-size: 3rem !important;
+}
+
+@media screen and (max-width: 730px) {
+  #name-text {
+    font-size: 5rem !important;
+  }
+  #name-description-text {
+    font-size: 2rem !important;
+  }
+}
+
+@media screen and (max-width: 610px) {
+  #name-text {
+    font-size: 4rem !important;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  #name-text {
+    font-size: 3.3rem !important;
+    text-shadow: .1rem .1rem .1rem gray;
+  }
+  #name-description-text {
+    font-size: 1.5rem !important;
+  }
+}
